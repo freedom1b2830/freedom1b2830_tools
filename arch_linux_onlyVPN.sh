@@ -79,6 +79,8 @@ localhost_out
 #vpn серверы
 vpn_out
 
+iptables -A OUTPUT -m owner --uid-owner 0 -j LOG --log-level 7 --log-prefix "OUT:ROOT " --log-uid
+
 #логирование попыток выйти
 iptables -A OUTPUT -j LOG --log-level 7 --log-prefix "OUT:DROP " --log-uid
 #блок
