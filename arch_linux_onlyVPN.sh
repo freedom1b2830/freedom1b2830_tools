@@ -43,18 +43,30 @@ vpn_out(){
 #	iptables -A OUTPUT -p icmp -d AAAAAAAAAAAA -j ACCEPT	#ping
 #	iptables -A INPUT -p icmp -d AAAAAAAAAAAA -j ACCEPT		#ping
 
-	iptables -A OUTPUT -p udp -d 121.109.77.83 --dport 1695 -j ACCEPT
 
 
 
 	#трафик через vpn
 	iptables -A OUTPUT -o tun0 -j ACCEPT
-	
 	#TODO сделать чтение из файла
-	iptables -A OUTPUT -p udp -d 219.100.37.84 -j ACCEPT
-
-
+	
+	iptables -A OUTPUT -p udp -d 134.19.179.157 -j ACCEPT
+	iptables -A OUTPUT -p udp -d 134.19.179.197 -j ACCEPT
+	iptables -A OUTPUT -p udp -d 173.44.55.157 -j ACCEPT
+	iptables -A OUTPUT -p udp -d 185.206.225.61 -j ACCEPT
+	iptables -A OUTPUT -p udp -d 192.168.3.1 -j ACCEPT
+	iptables -A OUTPUT -p udp -d 213.152.162.101 -j ACCEPT
+	iptables -A OUTPUT -p udp -d 213.152.162.106 -j ACCEPT
+	iptables -A OUTPUT -p udp -d 213.152.162.7 -j ACCEPT
+	iptables -A OUTPUT -p udp -d 213.152.187.212 -j ACCEPT
+	
+	iptables -A OUTPUT -p tcp -d 54.93.175.114 -j ACCEPT
+	iptables -A OUTPUT -p tcp -d 63.33.116.50 -j ACCEPT
+	iptables -A OUTPUT -p tcp -d 63.33.78.166 -j ACCEPT
+	iptables -A OUTPUT -p tcp -d 82.196.3.205 -j ACCEPT
+	
 	}
+	
 localhost_out(){
 	iptables -A OUTPUT -o lo -j ACCEPT
 }
