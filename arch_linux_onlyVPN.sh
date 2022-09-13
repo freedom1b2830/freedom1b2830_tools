@@ -19,7 +19,7 @@ clear(){
 	iptables -P OUTPUT DROP	
 }
 save(){
-	iptables-save -f /etc/iptables/rules.v4/iptables.rules
+	iptables-save -f /etc/iptables/iptables.rules
 }
 
 
@@ -63,9 +63,11 @@ localhost_out(){
 
 #маршрут
 localhost_out
+
+#vpn серверы
 vpn_out
 
-
+#логирование попыток выйти
 iptables -A OUTPUT -j LOG --log-level 7 --log-prefix "OUT:DROP " --log-uid
 #блок
 save
